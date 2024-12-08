@@ -1,0 +1,152 @@
+@media print {
+  .noprint {
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+    height: 0;
+  }
+  article {
+    width: 100%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: var(--background-color, hsla(0, 0%, 98%, 1));
+  color: var(--text-color, #000);
+}
+
+.resume-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  text-align: start;
+}
+
+.resume {
+  width: 800px;
+  background: var(--background-color, hsla(0, 0%, 98%, 1));
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.resume h1 {
+  text-align: center;
+  font-size: 36px;
+  letter-spacing: 2px;
+  color: var(--text-color, #000);
+}
+
+.resume h2 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 300;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  text-align: center;
+  font-size: 14px;
+  color: gray;
+}
+
+.resume hr {
+  margin: 20px 0;
+  border-color: var(--hr-color, #ccc);
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+.resume h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: var(--text-color, #000);
+}
+
+.resume p, .resume ul {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-color, #000);
+}
+
+.resume ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.resume ul li {
+  padding-left: 15px;
+  position: relative;
+}
+
+.resume ul li:before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--text-color, #000);
+}
+
+.resume .job h4,
+.resume .school h4 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--text-color, #000);
+}
+
+.resume .job h5,
+.resume .school h5 {
+  font-size: 14px;
+  color: gray;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.resume-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.resume-buttons button,
+.edit-button {
+  cursor: pointer;
+  padding: 8px 16px;
+  background-color: var(--button-bg, #007bff);
+  color: var(--button-color, #fff);
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  outline: none;
+}
+
+.edit-button {
+  padding: 5px 20px;
+  border-radius: 10px;
+}
+
+.dark {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --article-background: #1e1e1e;
+  --hr-color: #666;
+  --button-text: #fff;
+  --button-border: #444;
+  --cmpnt-btn-bg: #333;
+  --cmpnt-p-btn-bg: #444;
+  --cmpnt-li-btn-bg: #222;
+  --button-bg: #444;
+  --button-color: #fff;
+}
