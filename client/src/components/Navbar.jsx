@@ -131,9 +131,6 @@ const Navbar = () => {
           <li className="hover:bg-orange-600 hover:text-white px-3 py-2 rounded">
             <Link to="/blogs">Blogs</Link>
           </li>
-          <li className="hover:bg-orange-600 hover:text-white px-3 py-2 rounded">
-            <Link to="/popular-jobs">Popular Jobs</Link>
-          </li>
         </ul>
         <div className="hidden lg:block">
           {!user?.token ? (
