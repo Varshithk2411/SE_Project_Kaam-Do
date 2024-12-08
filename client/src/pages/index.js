@@ -6,7 +6,7 @@ import CompanyProfile from "./CompanyProfile";
 import UploadJob from "./UploadJob";
 import About from "./About";
 import JobDetail from "./JobDetail";
-import Resume from "./Resumebuilder";
+import Resume from "./Resumebuilder1";
 import Carousel from "./blogs";
 
 export {
