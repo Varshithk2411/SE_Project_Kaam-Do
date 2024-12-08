@@ -20,15 +20,17 @@ import SectionFifth from "./components/Home/SectionFifth";
 import SectionSixth from "./components/Home/SectionSixth";
 import About from "./components/About/About";
 import ContactForm from "./components/ContactForm"; // Importing ContactForm
-import Resume from "./pages/Resumebuilder";
+import Resume from "./pages/Resumebuilder1";
 import Register from "./pages/CandidatePage";
 import CandidatePage from "./pages/CandidatePage";
+import PopularJobs from './pages/PopularJobs'; // Import PopularJobs
 
 import { useEffect, useState } from "react";
 import Loader from "./components/Loader";
 import { BiArrowToTop } from "react-icons/bi";
 import KaamDoPrivacyPolicy from "./pages/PrivacyPolicy";
 import KaamDoTermsConditions from "./pages/Terms";
+import Resume2 from "./pages/Resumebuilder2";
 
 // Layout component to handle protected routes
 function Layout() {
@@ -41,7 +43,15 @@ function Layout() {
     <Navigate to="/user-auth" state={{ from: location }} replace />
   );
 }
-
+function Temp () {
+  return (
+      <div>
+          {/* Render MyComponent twice */}
+          <Resume />
+          <Resume2 />
+      </div>
+  );
+};
 function App() {
   const { user } = useSelector((state) => state.user);
   const [loading, setLoading] = useState(false);
@@ -120,9 +130,10 @@ function App() {
           <Route path="/privacy" element={<KaamDoPrivacyPolicy />} />
           <Route path="/terms" element={<KaamDoTermsConditions />} />
         </Route>
-        <Route path="/about-us" element={<About />} />
+        <Route path="/about-us" element={<About/ >} />
         <Route path="/user-auth" element={<AuthPage />} />
         <Route path="/candidates" element={<CandidatePage/>}/>
+        <Route path="/popular-jobs" element={<PopularJobs />} /> {/* Popular Jobs route */}
         <Route
           path="/"
           element={<Navigate to="/find-jobs" replace={true} />}
@@ -130,7 +141,7 @@ function App() {
         <Route path='/*' element={<Error />} />
 
         <Route path="*" element={<Navigate to="/find-jobs" replace />} />
-        <Route path="/resume" element={<Resume />} />
+        <Route path="/resume" element={<Temp />} />
         <Route path="/" element={<Navigate to="/find-jobs" replace={true} />} />
       </Routes>
       <BiArrowToTop
