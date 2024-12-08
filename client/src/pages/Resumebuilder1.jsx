@@ -10,8 +10,8 @@ const Resume = () => {
     personalInfo: {
       name: "Luna Thomas",
       title: "Product Manager | Strategy & Innovation",
-      email: "luna.thomas@example.com",
-      phone: "555-555-5555",
+      email: "luna.thomas@gmail.com",
+      phone: "469-585-7236",
       location: "San Francisco, California",
       linkedin: "linkedin.com/in/lunathomas",
     },
