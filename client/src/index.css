@@ -148,6 +148,145 @@ body {
   animation-delay: 0.1s;
 }
 
+
+.translate-container {
+  position: relative;
+}
+
+.globe-icon {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+  font-size: 20px;
+  padding-right: 20px;
+}
+
+.styled-select {
+  position: relative;
+  width: 200px;
+  padding: 5px 0;
+}
+
+.language-select {
+  width: 100%;
+  padding: 10px 10px;
+  font-size: 14px;
+  color: #333;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  appearance: none; /* Remove default arrow for styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
+.language-select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.language-select option {
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* Custom arrow for the select box */
+.styled-select::after {
+  content: "â–¼";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #666;
+  font-size: 12px;
+}
+
+.skiptranslate span{
+  display: none;
+} 
+.skiptranslate iframe{
+  display: none;
+} 
+
+.goog-te-banner-frame {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+
+.ct-topbar {
+  text-align: right;
+  background: #eee;
+}
+.ct-topbar__list {
+  margin-bottom: 0px;
+}
+.ct-language__dropdown{
+	padding-top: 8px;
+	max-height: 0;
+	overflow: hidden;
+	position: absolute;
+	top: 110%;
+	left: -3px;
+	-webkit-transition: all 0.25s ease-in-out;
+	transition: all 0.25s ease-in-out;
+	width: 100px;
+	text-align: center;
+	padding-top: 0;
+  z-index:200;
+}
+.ct-language__dropdown li{
+	background: #222;
+	padding: 5px;
+}
+.ct-language__dropdown li a{
+	display: block;
+}
+.ct-language__dropdown li:first-child{
+	padding-top: 10px;
+	border-radius: 3px 3px 0 0;
+}
+.ct-language__dropdown li:last-child{
+	padding-bottom: 10px;
+	border-radius: 0 0 3px 3px;
+}
+.ct-language__dropdown li:hover{
+	background: #444;
+}
+.ct-language__dropdown:before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 8px;
+	height: 0;
+	border: 0 solid transparent;
+	border-right-width: 8px;
+	border-left-width: 8px;
+	border-bottom: 8px solid #222;
+}
+.ct-language{
+	position: relative;
+  background: #00aced;
+  color: #fff;
+  padding: 10px 0;
+}
+.ct-language:hover .ct-language__dropdown{
+	max-height: 200px;
+	padding-top: 8px;
+}
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+
 @keyframes pulse {
   0% {
     transform: scale(0.8);
@@ -171,4 +310,3 @@ body {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
