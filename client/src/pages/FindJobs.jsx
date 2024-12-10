@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { BiBriefcaseAlt2 } from "react-icons/bi";
 import { BsStars } from "react-icons/bs";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-
+import Slider from "rc-slider";
 import Header from "../components/Header";
 import { experience, jobTypes, jobs } from "../utils/data";
 import { CustomButton, JobCard, ListBox } from "../components";
@@ -19,13 +19,14 @@ const FindJobs = () => {
   const [jobLocation, setJobLocation] = useState("");
   const [filterJobTypes, setFilterJobTypes] = useState([]);
   const [filterExp, setFilterExp] = useState([]);
-
+  const [salaryRange, setSalaryRange] = useState([500, 15000]); // Salary range state
   const [isFetching, setIsFetching] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
 
   const filterJobs = (val) => {
+    console.log(filterJobTypes)
     if (filterJobTypes.includes(val)) {
       setFilterJobTypes(filterJobTypes.filter((el) => el !== val));
     } else {
@@ -41,13 +42,13 @@ const FindJobs = () => {
     }
   };
 
-  const filteredJobs = jobs
-    .filter((job) => {
+  const filteredJobs = jobs.filter((job) => {
       const jobTypeMatch = filterJobTypes.length === 0 || filterJobTypes.includes(job.jobType);
       const expMatch = filterExp.length === 0 || filterExp.some(exp => exp === job.experience);
-      return jobTypeMatch && expMatch;
-    })
-    .sort((a, b) => {
+      const salary = parseInt(job.salary, 10); // Ensure salary is a number
+      const salaryMatch = salary >= salaryRange[0] && salary <= salaryRange[1];
+      return jobTypeMatch && expMatch && salaryMatch;
+    }).sort((a, b) => {
       switch (sort) {
         case "Newest":
           return new Date(b.createdAt) - new Date(a.createdAt);
@@ -65,6 +66,12 @@ const FindJobs = () => {
           return 0;
       }
     });
+
+    const handleSalaryChange = (range) => {
+      console.log(range)
+      setSalaryRange(range);
+      
+    };
 
   return (
     <div>
@@ -92,7 +99,35 @@ const FindJobs = () => {
       <div className="container mx-auto flex gap-6 2xl:gap-10 md:px-7 py-0 md:py-6 bg-[#f7fdfd] dark:bg-slate-800">
         <div className="hidden md:flex flex-col w-1/5 px-4 py-4 h-fit bg-white dark:bg-slate-900 shadow-sm">
           <p className="text-lg font-semibold text-slate-600 dark:text-slate-100">Filter Search</p>
+          <div className="py-2">
+            <div className="flex justify-between mb-3">
+              <p className="flex items-center gap-2 font-semibold">
+                <BiBriefcaseAlt2 />
+                Filter By Salary
+              </p>
 
+              <button>
+                <MdOutlineKeyboardArrowDown />
+              </button>
+            </div>
+
+            <div className="flex flex-col gap-2">
+            <Slider
+            range
+            min={500}
+            max={20000}
+            defaultValue={salaryRange}
+            value={salaryRange}
+            onChange={handleSalaryChange}
+            trackStyle={{ backgroundColor: "#007BFF" }}
+            handleStyle={[{ borderColor: "#007BFF" }, { borderColor: "#007BFF" }]}
+          />
+          <div className="flex justify-between mt-2">
+            <span>${salaryRange[0]}</span>
+            <span>${salaryRange[1]}</span>
+          </div>
+            </div>
+          </div>
           <div className="py-2">
             <div className="flex justify-between mb-3">
               <p className="flex items-center gap-2 font-semibold">
