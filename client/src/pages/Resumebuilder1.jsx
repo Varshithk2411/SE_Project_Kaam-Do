@@ -110,6 +110,30 @@ const Resume = ({data,resumeBuildId}) => {
     };
   }, [isCtrlDown]);
 
+  const handlePrint = () => {
+    const buttons = document.querySelectorAll(
+      ".resume-buttons button, .edit-button"
+    );
+    const instructions = document.querySelector(".instructions");
+
+    buttons.forEach((button) => {
+      button.style.display = "none";
+    });
+    instructions.style.display = "none";
+
+    html2canvas(document.getElementById(resumeBuildId)).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF("p", "mm", "a4");
+      pdf.addImage(imgData, "PNG", 0, 0, 210, 297);
+      pdf.save("resume.pdf");
+
+      buttons.forEach((button) => {
+        button.style.display = "inline-block";
+      });
+      instructions.style.display = "block";
+    });
+  };
+
   // const handlePrint2 = () => {
   //   const resumeElement = document.getElementById(resumeBuildId)
   //   const buttons = resumeElement.querySelectorAll(
