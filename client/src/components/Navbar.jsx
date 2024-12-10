@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import CustomButton from "./CustomButton";
 import { useSelector } from "react-redux";
 import DarkMode from "./DarkMode/DarkMode.jsx";
+import { Padding } from "@mui/icons-material";
 
 function MenuList({ user, onClick }) {
   const handleLogout = () => {};
@@ -104,12 +105,12 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0 w-full bg-[#f9f9f9] dark:bg-slate-800 z-50 shadow-md">
-      <nav className="container mx-auto flex items-center justify-between p-5">
+      <nav className="container mx-auto flex items-center justify-between !p-5">
         <Link to="/" className="text-orange-600 font-bold text-xl">
           Kaam<span className="text-[#fb923c]">Do</span>
         </Link>
 
-        <ul className="hidden lg:flex gap-10 text-base text-gray-700 dark:text-white">
+        <ul className="hidden lg:flex gap-5 text-base text-gray-700 dark:text-white">
           <li className="hover:bg-orange-600 hover:text-white px-3 py-2 rounded">
             <Link to="/">Home</Link>
           </li>
