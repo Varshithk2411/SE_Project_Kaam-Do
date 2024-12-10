@@ -31,6 +31,11 @@ import { BiArrowToTop } from "react-icons/bi";
 import KaamDoPrivacyPolicy from "./pages/PrivacyPolicy";
 import KaamDoTermsConditions from "./pages/Terms";
 import Resume2 from "./pages/Resumebuilder2";
+import ResumeBuilder from "./pages/Resumebuilder3";
+import { resumedata1 } from "./utils/resumedata";
+import { resumedata2 } from "./utils/resumedata";
+import Translate from "./components/Translate";
+import Translate2 from "./components/Translate2";
 
 // Layout component to handle protected routes
 function Layout() {
@@ -47,8 +52,9 @@ function Temp () {
   return (
       <div>
           {/* Render MyComponent twice */}
-          <Resume />
-          <Resume2 />
+          <Resume data={resumedata1} resumeBuildId={"Resume001"}/>
+          <Resume data={resumedata2} resumeBuildId={"Resume002"}/>
+          {/* <ResumeBuilder/> */}
       </div>
   );
 };
@@ -71,6 +77,8 @@ function App() {
 
   return (
     <main className="bg-[#f7fdfd] dark:bg-slate-950 dark:text-white">
+      {/* <Translate/> */}
+      <Translate2/>
       <Navbar />
       {loading && <Loader />}
       <Routes>
